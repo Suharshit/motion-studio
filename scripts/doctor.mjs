@@ -3,6 +3,7 @@ import {execFileSync, spawnSync} from 'node:child_process';
 import {existsSync, readFileSync} from 'node:fs';
 import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {python} from './lib/python.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 let bad = 0;
@@ -17,8 +18,9 @@ has('ffmpeg') ? ok('ffmpeg') : no('ffmpeg missing', 'brew install ffmpeg  |  sud
 has('ffprobe') ? ok('ffprobe') : no('ffprobe missing', 'comes with ffmpeg');
 const filters = spawnSync('ffmpeg', ['-hide_banner', '-filters'], {encoding: 'utf8'}).stdout ?? '';
 for (const f of ['tmix', 'loudnorm', 'sidechaincompress', 'tile', 'ssim']) filters.includes(` ${f} `) ? ok(`ffmpeg filter ${f}`) : no(`ffmpeg filter ${f}`, 'use a full ffmpeg build');
-const py = spawnSync('python3', ['-c', 'import numpy, librosa, soundfile; print(librosa.__version__)'], {encoding: 'utf8'});
-py.status === 0 ? ok(`python librosa ${py.stdout.trim()}`) : no('python numpy/librosa/soundfile (only needed to measure supplied tracks)', 'pip install -r requirements.txt');
+const PY = python();
+const py = spawnSync(PY, ['-c', 'import numpy, librosa, soundfile; print(librosa.__version__)'], {encoding: 'utf8'});
+py.status === 0 ? ok(`python librosa ${py.stdout.trim()} (${PY})`) : no(`python numpy/librosa/soundfile via "${PY}" (only needed to measure supplied tracks)`, `${PY} -m pip install -r requirements.txt   (or set PYTHON=/path/to/python in .env)`);
 
 console.log('Browser');
 try {

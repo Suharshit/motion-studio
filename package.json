@@ -13,7 +13,7 @@
     "stills": "node engine/stills.mjs",
     "render": "node engine/render.mjs",
     "music": "node engine/music.mjs",
-    "beats": "python3 engine/beats.py",
+    "beats": "node engine/beats.mjs",
     "sfx": "node engine/sfx.mjs",
     "mix": "node engine/mix.mjs",
     "qa": "node engine/qa.mjs",

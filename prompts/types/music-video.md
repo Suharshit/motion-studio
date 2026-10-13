@@ -30,7 +30,7 @@ Follow the gates in prompts/passes/director-brief.md and log every critique roun
 ```
 
 ## Audio-reactive (optional)
-For visualizers, precompute an energy envelope once (`python3 -c` with librosa RMS → `energy.json`, ~100 values/sec) and read it by index in `seek(t)` — still a pure function of t.
+For visualizers, precompute an energy envelope once (`python -c` with librosa RMS → `energy.json`, ~100 values/sec) and read it by index in `seek(t)` — still a pure function of t.
 
 ## Critique focus
 Sync (cuts within ±1 frame of beats), section contrast, readability of any on-screen text, the loop/poster frame.
