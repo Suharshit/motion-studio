@@ -1,0 +1,105 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>{{SLUG}}</title>
+<!--
+  {{SLUG}} · type: {{TYPE}} · playbook: {{PLAYBOOK}} · style: {{STYLE}}
+  This file IS the film. window.seek(t) paints frame t. Follow CLAUDE.md → Render contract.
+  Preview: npm run preview -- {{SLUG}}     Stills: npm run stills -- {{SLUG}}     Render: npm run render -- {{SLUG}}
+  The scenes below are a placeholder skeleton — replace them with the shot list (docs/shotlist.md).
+-->
+<script type="module">
+  import {studio} from '../../engine/lib/runtime.js';
+  import {sp, track, clamp, beatAt, barAt, pulse, hash01} from '../../engine/lib/motion.js';
+  import {kineticText, counter, roundRect, background, finish, setType, captions} from '../../engine/lib/draw.js';
+
+  // Beat grid fallback so the skeleton runs before music exists (120 BPM).
+  const grid = (ctx) => ctx.beats ?? {bpm: 120, beats: Array.from({length: 64}, (_, i) => i * 0.5), downbeats: Array.from({length: 16}, (_, i) => i * 2)};
+
+  studio({
+    duration: {{DURATION}},
+    images: {
+      // logo: 'assets/logo.png',
+    },
+    background: (t, ctx) => background(ctx.g, t, ctx),
+
+    scenes: (ctx) => {
+      const B = grid(ctx);
+      const {L, c, style} = ctx;
+      const bar = (i) => barAt(B, i);
+      return [
+        // 1 · HOOK — huge kinetic type, problem in ≤ 5 words
+        {
+          name: 'hook', from: 0, to: bar(2),
+          draw(t, {g}) {
+            const block = kineticText(g, t, 'Replace this hook line', {
+              x: L.cx, y: L.cy, size: L.px(L.pick({portrait: 150, square: 130, landscape: 120})), maxW: L.safe.w,
+              style, stagger: 0.07, feel: 'heavy', reveal: style.motion?.textReveal ?? 'mask-up', exitAt: bar(2) - 0.35,
+            });
+            // accent underline that springs in with the last word
+            const s = sp(t - 0.45, 'snappy');
+            g.fillStyle = c.accent;
+            g.fillRect(L.cx - L.px(260) * s, L.cy + block.height / 2 + L.px(10), L.px(520) * s, L.px(14));
+          },
+        },
+        // 2 · GRID — tiles on a spring stagger, accent tile pulses on the beat
+        {
+          name: 'grid', from: bar(2), to: bar(4),
+          draw(t, {g}, T) {
+            const cols = L.pick({portrait: 4, square: 5, landscape: 7}), rows = L.pick({portrait: 6, square: 5, landscape: 4});
+            const size = Math.min(L.safe.w / cols, L.safe.h / rows) * 0.82;
+            const ox = L.cx - (cols * size) / 2 / 0.82, oy = L.cy - (rows * size) / 2 / 0.82;
+            for (let i = 0; i < cols * rows; i++) {
+              const cx = ox + ((i % cols) + 0.5) * (size / 0.82), cy = oy + (Math.floor(i / cols) + 0.5) * (size / 0.82);
+              const s = sp(t - i * 0.025 - hash01(i) * 0.08, 'default') * (1 - clamp((t - 3.4 - i * 0.01) / 0.25));
+              // accent tiles jump to new cells on every beat (beat-synced, deterministic)
+              const beatIdx = B.beats.filter((b) => b <= T).length;
+              const hot = [0, 1, 2].some((k) => i === Math.floor(hash01(beatIdx * 3 + k) * cols * rows));
+              g.fillStyle = hot ? c.accent : c.surface;
+              const k = s * (hot ? 1 + 0.08 * pulse(T, B) : 1);
+              roundRect(g, cx - (size / 2) * k, cy - (size / 2) * k, size * k, size * k, (style.layout?.cornerRadius ?? 16) * L.u * k);
+              g.fill();
+            }
+          },
+        },
+        // 3 · PROOF — one number that proves it
+        {
+          name: 'proof', from: bar(4), to: bar(6),
+          draw(t, {g}) {
+            counter(g, t - 0.1, 10000, {x: L.cx, y: L.cy + L.px(40), size: L.px(L.pick({portrait: 220, landscape: 200})), style, suffix: '+', color: c.text});
+            g.globalAlpha = clamp((t - 0.6) / 0.3);
+            setType(g, style, 'body', L.px(44));
+            g.fillStyle = c.muted;
+            g.textAlign = 'center';
+            g.fillText('replace with the proof metric', L.cx, L.cy + L.px(140));
+          },
+        },
+        // 4 · LOCKUP — brand + CTA, holds, last frame sets up the first
+        {
+          name: 'lockup', from: bar(6), to: {{DURATION}},
+          draw(t, {g}) {
+            const s = sp(t, 'heavy');
+            g.translate(L.cx, L.cy);
+            g.scale(0.9 + 0.1 * s, 0.9 + 0.1 * s);
+            g.globalAlpha = clamp(t * 4);
+            setType(g, style, 'display', L.px(120), 'BRAND');
+            g.fillStyle = c.text;
+            g.textAlign = 'center';
+            g.fillText(setType(g, style, 'display', L.px(120), 'Brand'), 0, 0);
+            g.globalAlpha = clamp((t - 0.5) / 0.3);
+            g.fillStyle = c.accent;
+            roundRect(g, -L.px(170), L.px(60), L.px(340), L.px(84), L.px(42));
+            g.fill();
+            setType(g, style, 'body', L.px(36));
+            g.fillStyle = c.bg;
+            g.fillText('brand.com', 0, L.px(115));
+          },
+        },
+      ];
+    },
+
+    overlay: (t, ctx) => {
+      if (ctx.captions) captions(ctx.g, t, ctx.captions, {L: ctx.L, style: ctx.style});
+      finish(ctx.g, t, ctx);
+    },
+  });
+</script>

@@ -1,0 +1,31 @@
+{
+  "name": "motion-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A client-ready motion graphics studio for Claude Code: deterministic seek(t) renders, closed-form springs, beat-synced sound, Fish Audio voice, a prompt router for every video type, a critique loop, and a style vault that grows with every project.",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs",
+    "route": "node scripts/route.mjs",
+    "new": "node scripts/new-project.mjs",
+    "preview": "node engine/serve.mjs",
+    "stills": "node engine/stills.mjs",
+    "render": "node engine/render.mjs",
+    "music": "node engine/music.mjs",
+    "beats": "python3 engine/beats.py",
+    "sfx": "node engine/sfx.mjs",
+    "mix": "node engine/mix.mjs",
+    "qa": "node engine/qa.mjs",
+    "voices": "node scripts/fish-voices.mjs",
+    "vo": "node scripts/fish-tts.mjs",
+    "captions": "node scripts/fish-captions.mjs",
+    "capture": "node scripts/capture-site.mjs",
+    "ref": "node scripts/ref-frames.mjs",
+    "vault": "node scripts/vault.mjs",
+    "deliver": "node scripts/deliver.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.0"
+  }
+}

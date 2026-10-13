@@ -1,0 +1,8 @@
+node_modules/
+out/
+.env
+.DS_Store
+*.log
+# Generated audio is reproducible from script.json; keep it out of git by default
+public/projects/*/vo/
+public/projects/*/captions.json

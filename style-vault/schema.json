@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Motion Studio style",
+  "type": "object",
+  "required": ["id", "name", "colors", "typography", "motion", "layout", "texture"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "mood": {"type": "array", "items": {"type": "string"}},
+    "bestFor": {"type": "array", "items": {"enum": ["showreel", "product-launch", "mascot-explainer", "ui-morph-loop", "ui-film-set", "kinetic-pitch", "data-story", "logo-sting", "story-history", "music-video", "narrative-short"]}},
+    "colors": {
+      "type": "object",
+      "required": ["bg", "surface", "primary", "accent", "text", "muted"],
+      "properties": {
+        "bg": {"type": "string"}, "surface": {"type": "string"}, "primary": {"type": "string"}, "secondary": {"type": "string"},
+        "accent": {"type": "string"}, "text": {"type": "string"}, "muted": {"type": "string"},
+        "gradient": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": ["display", "body"],
+      "properties": {
+        "display": {"$ref": "#/$defs/face"}, "body": {"$ref": "#/$defs/face"}, "mono": {"$ref": "#/$defs/face"},
+        "scale": {"type": "number", "description": "global size multiplier"}
+      }
+    },
+    "motion": {
+      "type": "object",
+      "properties": {
+        "pace": {"enum": ["snappy", "smooth", "cinematic", "bouncy"]},
+        "springs": {"type": "object", "description": "role → spring name in engine/lib/motion.js SPRINGS", "additionalProperties": {"enum": ["snappy", "default", "heavy", "playful"]}},
+        "textReveal": {"enum": ["mask-up", "scale-pop", "blur-in", "slide", "typewriter"]},
+        "staggerFrames": {"type": "number"},
+        "transition": {"enum": ["fade", "slide", "wipe", "zoom", "flip", "cut"]},
+        "transitionFrames": {"type": "number"}
+      }
+    },
+    "layout": {"type": "object", "properties": {"safeMargin": {"type": "number"}, "cornerRadius": {"type": "number"}, "strokeWidth": {"type": "number"}, "grid": {"enum": ["none", "dots", "lines", "swiss"]}}},
+    "texture": {"type": "object", "properties": {"background": {"enum": ["solid", "gradient", "mesh", "grid", "dots", "noise", "spotlight"]}, "grain": {"type": "number", "minimum": 0, "maximum": 1}, "vignette": {"type": "number", "minimum": 0, "maximum": 1}}},
+    "audio": {"type": "object", "properties": {"musicMood": {"type": "string"}, "voiceDirection": {"type": "string"}, "sfx": {"type": "string"}}},
+    "dos": {"type": "array", "items": {"type": "string"}},
+    "donts": {"type": "array", "items": {"type": "string"}},
+    "source": {"type": "object", "properties": {"project": {"type": "string"}, "type": {"type": ["string", "null"]}, "date": {"type": "string"}}},
+    "version": {"type": "integer"},
+    "remixOf": {"type": "string"},
+    "history": {"type": "array"}
+  },
+  "$defs": {
+    "face": {
+      "type": "object",
+      "required": ["family", "weight"],
+      "properties": {
+        "family": {"type": "string", "description": "Google Font name, or any name with src"},
+        "weight": {"type": "number"},
+        "letterSpacing": {"type": "number", "description": "em"},
+        "lineHeight": {"type": "number"},
+        "case": {"enum": ["none", "upper", "lower", "title"]},
+        "src": {"type": "string", "description": "optional local font file relative to the project, e.g. assets/fonts/Brand.woff2 — renders offline, forever"}
+      }
+    }
+  }
+}

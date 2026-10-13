@@ -1,0 +1,101 @@
+{
+  "id": "soft-watercolor",
+  "name": "Soft Watercolor",
+  "description": "Cold-press paper, translucent pigment washes, soft serif display. Slow cinematic springs, blur-in type, heavy paper grain. Storybook warmth.",
+  "tags": [
+    "light",
+    "painted",
+    "watercolor",
+    "storybook",
+    "serif",
+    "warm",
+    "hand-made"
+  ],
+  "mood": [
+    "gentle",
+    "nostalgic",
+    "human"
+  ],
+  "bestFor": [
+    "narrative-short",
+    "mascot-explainer",
+    "story-history"
+  ],
+  "colors": {
+    "bg": "#F6F1E7",
+    "surface": "#EDE4D3",
+    "primary": "#3B3A36",
+    "secondary": "#7C6F5F",
+    "accent": "#D9704A",
+    "text": "#3B3A36",
+    "muted": "#9A8F80",
+    "gradient": [
+      "#A8C5D6",
+      "#E9C9A6",
+      "#C9D8B6"
+    ]
+  },
+  "typography": {
+    "display": {
+      "family": "Fraunces",
+      "weight": 600,
+      "letterSpacing": -0.01,
+      "case": "none"
+    },
+    "body": {
+      "family": "Nunito",
+      "weight": 600,
+      "letterSpacing": 0
+    }
+  },
+  "motion": {
+    "pace": "cinematic",
+    "springs": {
+      "ui": "default",
+      "container": "heavy",
+      "type": "heavy"
+    },
+    "textReveal": "blur-in",
+    "staggerFrames": 6,
+    "transition": "fade",
+    "transitionFrames": 24
+  },
+  "layout": {
+    "safeMargin": 120,
+    "cornerRadius": 24,
+    "strokeWidth": 3,
+    "grid": "none"
+  },
+  "texture": {
+    "background": "spotlight",
+    "grain": 0.1,
+    "vignette": 0.2
+  },
+  "audio": {
+    "musicMood": "piano, 90 BPM, sparse",
+    "voiceDirection": "soft, storyteller, unhurried",
+    "sfx": "paper rustle, soft chimes"
+  },
+  "dos": [
+    "Edges bleed; nothing perfectly vector",
+    "Line boil every 2 frames"
+  ],
+  "donts": [
+    "No hard drop shadows",
+    "No neon"
+  ],
+  "source": {
+    "project": "seed",
+    "type": null,
+    "date": "2026-10-13"
+  },
+  "version": 1,
+  "history": [
+    {
+      "version": 1,
+      "project": "seed",
+      "date": "2026-10-13",
+      "note": "studio seed style"
+    }
+  ]
+}

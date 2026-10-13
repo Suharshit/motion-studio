@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(node engine/*)",
+      "Bash(node scripts/*)",
+      "Bash(python3 engine/beats.py *)",
+      "Bash(ffmpeg *)",
+      "Bash(ffprobe *)"
+    ],
+    "deny": [
+      "Read(./.env)"
+    ]
+  }
+}

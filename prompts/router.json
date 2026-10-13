@@ -1,0 +1,134 @@
+{
+  "_doc": "Machine-readable twin of prompts/ROUTER.md. scripts/route.mjs scores a brief against these keywords. Edit both together.",
+  "types": [
+    {
+      "id": "showreel",
+      "playbook": "prompts/types/showreel.md",
+      "when": "Show off craft rather than a product: studio/agency reel, 'introduce yourself', capability demo, engine smoke test.",
+      "keywords": ["showreel", "reel", "show what you can do", "portfolio", "résumé", "resume", "agency", "capabilities", "sizzle", "studio intro", "introduce", "go all out", "test the setup"],
+      "engine": "route-a-seek",
+      "effort": "xhigh (max for a flagship reel)",
+      "duration": "10-60s",
+      "formats": ["16x9", "9x16"],
+      "passes": ["client-intake", "shotlist-on-beat", "sound-pass", "critique-pass", "delivery-and-vault"]
+    },
+    {
+      "id": "product-launch",
+      "playbook": "prompts/types/product-launch.md",
+      "when": "A real product with a URL: launch film, promo, product ad, feature announcement, App Store / Product Hunt video.",
+      "keywords": ["launch", "product", "promo", "ad", "advert", "commercial", "saas", "app", "website", "url", "feature", "release", "product hunt", "landing", "startup", "brand"],
+      "engine": "route-a-seek",
+      "effort": "xhigh (max when the first 3s carry the launch)",
+      "duration": "15-45s",
+      "formats": ["9x16", "1x1", "16x9"],
+      "passes": ["client-intake", "asset-capture", "reference-extraction?", "shotlist-on-beat", "sound-pass", "critique-pass", "multi-format", "delivery-and-vault"]
+    },
+    {
+      "id": "mascot-explainer",
+      "playbook": "prompts/types/mascot-explainer.md",
+      "when": "A voiced character or narrator explains the product/idea. Fish Audio voice + kinetic captions + an original mascot.",
+      "keywords": ["mascot", "character", "talking", "explainer", "explain", "voiceover", "voice over", "narrated", "narrator", "voice", "how it works", "tutorial", "walkthrough", "faceless", "youtube"],
+      "engine": "route-a-seek",
+      "effort": "xhigh",
+      "duration": "30-90s",
+      "formats": ["9x16", "16x9"],
+      "passes": ["client-intake", "asset-capture?", "voiceover-pass", "shotlist-on-beat", "sound-pass", "critique-pass", "multi-format", "delivery-and-vault"]
+    },
+    {
+      "id": "ui-morph-loop",
+      "playbook": "prompts/types/ui-morph-loop.md",
+      "when": "One element morphs through 8-12 UI states (button → loader → player → chart …), cursor-driven, seamless loop. Product-film UI motion.",
+      "keywords": ["morph", "ui states", "one shape", "loop", "seamless", "micro-interaction", "interaction", "button", "loader", "ui motion", "product film", "state list", "component"],
+      "engine": "route-a-seek",
+      "effort": "xhigh",
+      "duration": "12-24s",
+      "formats": ["1x1", "9x16", "16x9"],
+      "passes": ["client-intake", "state-list-spec", "shotlist-on-beat", "springs-refactor", "sound-pass", "critique-pass", "delivery-and-vault"]
+    },
+    {
+      "id": "ui-film-set",
+      "playbook": "prompts/types/ui-film-set.md",
+      "when": "A story told inside an interface Claude draws itself (an editor, a chat, a dashboard, an OS) — the UI is the set, every element has known states.",
+      "keywords": ["inside the app", "fake ui", "fake app", "interface", "editor", "desktop", "os", "chat ui", "dashboard story", "screen story", "story in the ui", "simulated"],
+      "engine": "route-a-seek",
+      "effort": "xhigh",
+      "duration": "20-60s",
+      "formats": ["16x9", "9x16"],
+      "passes": ["client-intake", "state-list-spec", "shotlist-on-beat", "sound-pass", "critique-pass", "delivery-and-vault"]
+    },
+    {
+      "id": "kinetic-pitch",
+      "playbook": "prompts/types/kinetic-pitch.md",
+      "when": "Notes, a pitch, an announcement or a quote turned into type-led video with kinetic captions, optionally voiced.",
+      "keywords": ["kinetic", "typography", "captions", "pitch", "notes", "announcement", "quote", "text video", "lyric-style", "manifesto", "thread to video", "talking points", "hiring", "update"],
+      "engine": "route-a-seek",
+      "effort": "high → xhigh",
+      "duration": "15-60s",
+      "formats": ["9x16", "1x1"],
+      "passes": ["client-intake", "voiceover-pass?", "shotlist-on-beat", "sound-pass", "critique-pass", "multi-format", "delivery-and-vault"]
+    },
+    {
+      "id": "data-story",
+      "playbook": "prompts/types/data-story.md",
+      "when": "Numbers are the hero: metrics, results, reports, charts that draw themselves, year-in-review.",
+      "keywords": ["data", "chart", "graph", "numbers", "metrics", "stats", "report", "results", "growth", "kpi", "infographic", "year in review", "wrapped", "dashboard", "revenue", "market"],
+      "engine": "route-a-seek (route-b-remotion for a recurring series)",
+      "effort": "xhigh",
+      "duration": "15-60s",
+      "formats": ["16x9", "9x16"],
+      "passes": ["client-intake", "voiceover-pass?", "shotlist-on-beat", "sound-pass", "critique-pass", "multi-format", "delivery-and-vault"]
+    },
+    {
+      "id": "logo-sting",
+      "playbook": "prompts/types/logo-sting.md",
+      "when": "A 3-8s logo reveal, intro/outro bumper, channel ident or end card.",
+      "keywords": ["logo", "logo reveal", "logo animation", "intro", "outro", "sting", "bumper", "ident", "end card", "opener"],
+      "engine": "route-a-seek",
+      "effort": "high",
+      "duration": "3-8s",
+      "formats": ["16x9", "9x16", "1x1"],
+      "passes": ["client-intake", "asset-capture?", "sound-pass", "critique-pass", "multi-format", "delivery-and-vault"]
+    },
+    {
+      "id": "story-history",
+      "playbook": "prompts/types/story-history.md",
+      "when": "Tell a story over time: history of X, origin story, company timeline, biography, mini-documentary.",
+      "keywords": ["history", "story of", "origin", "timeline", "evolution", "biography", "biopic", "documentary", "from to today", "how it started", "chapters", "era", "battle", "century"],
+      "engine": "route-a-seek (route-b-remotion past ~2 min or with chapters split across subagents)",
+      "effort": "xhigh → max",
+      "duration": "45s-3min",
+      "formats": ["16x9", "9x16"],
+      "passes": ["client-intake", "director-brief", "voiceover-pass?", "shotlist-on-beat", "sound-pass", "critique-pass", "delivery-and-vault"]
+    },
+    {
+      "id": "music-video",
+      "playbook": "prompts/types/music-video.md",
+      "when": "Picture cut to a supplied (licensed/client-owned) track: music video, visualizer, beat-synced brand film.",
+      "keywords": ["music video", "song", "track", "visualizer", "visualiser", "beat", "lyrics", "album", "single", "audio reactive", "dj", "band"],
+      "engine": "route-a-seek",
+      "effort": "max (multi-session)",
+      "duration": "30s-4min",
+      "formats": ["16x9", "9x16"],
+      "passes": ["client-intake", "director-brief", "reference-extraction?", "shotlist-on-beat", "critique-pass", "delivery-and-vault"]
+    },
+    {
+      "id": "narrative-short",
+      "playbook": "prompts/types/narrative-short.md",
+      "when": "An animated short with an original character and a plot: hand-painted, watercolor, paper, pixel, cartoon.",
+      "keywords": ["short film", "animated short", "animation", "cartoon", "watercolor", "watercolour", "hand-drawn", "hand drawn", "paper", "pixel", "story", "character", "robot", "fable"],
+      "engine": "route-a-seek (hand-drawn rig optional)",
+      "effort": "max (multi-session)",
+      "duration": "30s-3min",
+      "formats": ["16x9", "9x16"],
+      "passes": ["client-intake", "director-brief", "reference-extraction?", "voiceover-pass?", "shotlist-on-beat", "sound-pass", "critique-pass", "delivery-and-vault"]
+    }
+  ],
+  "modifiers": [
+    {"id": "reference-match", "playbook": "prompts/passes/reference-extraction.md", "keywords": ["reference", "like this", "in the style of", "match", "this look", "same vibe", "attached video", "frame", "inspired by"], "note": "Composable with any type. Run before the shot list."},
+    {"id": "voice", "playbook": "prompts/passes/voiceover-pass.md", "keywords": ["voice", "voiceover", "narration", "narrator", "narrated", "speaks", "talking", "fish"], "note": "Fish Audio TTS + word-level captions."},
+    {"id": "multi-format", "playbook": "prompts/passes/multi-format.md", "keywords": ["9:16", "1:1", "16:9", "4:5", "vertical", "square", "reels", "tiktok", "shorts", "all formats", "cutdowns", "linkedin", "instagram"], "note": "Reframe per format from one timeline; never crop."},
+    {"id": "remotion", "playbook": "prompts/engines/route-b-remotion.md", "keywords": ["remotion", "react", "series", "template", "batch", "data-driven", "personalized", "100 videos"], "note": "Switch engine to Remotion."},
+    {"id": "hyperframes", "playbook": "prompts/engines/route-b-hyperframes.md", "keywords": ["hyperframes", "gsap", "html video"], "note": "Switch engine to HyperFrames."},
+    {"id": "hand-drawn", "playbook": "prompts/engines/hand-drawn.md", "keywords": ["hand-drawn", "hand drawn", "sketch", "pen", "pencil", "doodle", "whiteboard", "rig"], "note": "Node canvas rigs and pens."}
+  ]
+}

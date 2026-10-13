@@ -1,0 +1,97 @@
+{
+  "id": "warm-paper-ui",
+  "name": "Warm Paper UI",
+  "description": "Warm neutral canvas, ink UI, one cobalt accent. Product-film UI motion: containers morph, content swaps behind a short blur, springs with a hair of overshoot.",
+  "tags": [
+    "light",
+    "ui",
+    "product",
+    "neutral",
+    "calm",
+    "saas"
+  ],
+  "mood": [
+    "friendly",
+    "crafted",
+    "clear"
+  ],
+  "bestFor": [
+    "ui-morph-loop",
+    "ui-film-set",
+    "product-launch",
+    "mascot-explainer"
+  ],
+  "colors": {
+    "bg": "#F3EFE7",
+    "surface": "#FFFFFF",
+    "primary": "#1C1B19",
+    "secondary": "#6E6A62",
+    "accent": "#2F5BFF",
+    "text": "#1C1B19",
+    "muted": "#8E897F"
+  },
+  "typography": {
+    "display": {
+      "family": "Inter Tight",
+      "weight": 700,
+      "letterSpacing": -0.035,
+      "case": "none"
+    },
+    "body": {
+      "family": "Inter",
+      "weight": 500,
+      "letterSpacing": -0.005
+    }
+  },
+  "motion": {
+    "pace": "smooth",
+    "springs": {
+      "ui": "snappy",
+      "container": "default",
+      "type": "heavy"
+    },
+    "textReveal": "blur-in",
+    "staggerFrames": 3,
+    "transition": "zoom",
+    "transitionFrames": 14
+  },
+  "layout": {
+    "safeMargin": 110,
+    "cornerRadius": 28,
+    "strokeWidth": 2,
+    "grid": "none"
+  },
+  "texture": {
+    "background": "solid",
+    "grain": 0.025,
+    "vignette": 0
+  },
+  "audio": {
+    "musicMood": "bright, 120 BPM, soft drums",
+    "voiceDirection": "warm, friendly, mid-pace",
+    "sfx": "ui clicks, soft pops, typing"
+  },
+  "dos": [
+    "Real UI only, rounded device-less frames",
+    "Shadows soft and short"
+  ],
+  "donts": [
+    "No bouncy easing on containers",
+    "No gradients on UI chrome",
+    "No particle bursts"
+  ],
+  "source": {
+    "project": "seed",
+    "type": null,
+    "date": "2026-10-13"
+  },
+  "version": 1,
+  "history": [
+    {
+      "version": 1,
+      "project": "seed",
+      "date": "2026-10-13",
+      "note": "studio seed style"
+    }
+  ]
+}

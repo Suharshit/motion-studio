@@ -1,0 +1,100 @@
+{
+  "id": "swiss-grid-mono",
+  "name": "Swiss Grid Mono",
+  "description": "Off-white page, black heavy caps, a single red. Strict column grid, slide-in type, data drawn with thin rules. Editorial and factual.",
+  "tags": [
+    "light",
+    "editorial",
+    "swiss",
+    "grid",
+    "data",
+    "red",
+    "caps"
+  ],
+  "mood": [
+    "factual",
+    "bold",
+    "authoritative"
+  ],
+  "bestFor": [
+    "data-story",
+    "kinetic-pitch",
+    "story-history"
+  ],
+  "colors": {
+    "bg": "#FAFAF7",
+    "surface": "#EDEDE8",
+    "primary": "#0D0D0D",
+    "secondary": "#5C5C58",
+    "accent": "#E4002B",
+    "text": "#0D0D0D",
+    "muted": "#7A7A75"
+  },
+  "typography": {
+    "display": {
+      "family": "Archivo",
+      "weight": 800,
+      "letterSpacing": -0.02,
+      "case": "upper"
+    },
+    "body": {
+      "family": "IBM Plex Mono",
+      "weight": 500,
+      "letterSpacing": 0
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "weight": 500
+    }
+  },
+  "motion": {
+    "pace": "snappy",
+    "springs": {
+      "ui": "snappy",
+      "container": "snappy",
+      "type": "heavy"
+    },
+    "textReveal": "slide",
+    "staggerFrames": 3,
+    "transition": "slide",
+    "transitionFrames": 8
+  },
+  "layout": {
+    "safeMargin": 88,
+    "cornerRadius": 0,
+    "strokeWidth": 2,
+    "grid": "swiss"
+  },
+  "texture": {
+    "background": "solid",
+    "grain": 0.03,
+    "vignette": 0
+  },
+  "audio": {
+    "musicMood": "minimal, 110 BPM, ticks",
+    "voiceDirection": "neutral, newsroom pace",
+    "sfx": "ticks on numbers, one impact per chapter"
+  },
+  "dos": [
+    "Everything aligns to the column grid",
+    "Numbers huge, labels in mono"
+  ],
+  "donts": [
+    "No rounded corners",
+    "No more than one red element per frame"
+  ],
+  "source": {
+    "project": "seed",
+    "type": null,
+    "date": "2026-10-13"
+  },
+  "version": 1,
+  "history": [
+    {
+      "version": 1,
+      "project": "seed",
+      "date": "2026-10-13",
+      "note": "studio seed style"
+    }
+  ]
+}

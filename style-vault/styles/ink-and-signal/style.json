@@ -1,0 +1,101 @@
+{
+  "id": "ink-and-signal",
+  "name": "Ink & Signal",
+  "description": "Near-black ink canvas, warm paper type, one hot orange signal. Tight grotesk display, mask-up words, quiet moving grid, light grain.",
+  "tags": [
+    "dark",
+    "tech",
+    "launch",
+    "grotesk",
+    "minimal",
+    "one-accent"
+  ],
+  "mood": [
+    "confident",
+    "precise",
+    "modern"
+  ],
+  "bestFor": [
+    "product-launch",
+    "showreel",
+    "kinetic-pitch",
+    "logo-sting"
+  ],
+  "colors": {
+    "bg": "#121212",
+    "surface": "#1E1E1C",
+    "primary": "#EFECE6",
+    "secondary": "#8C8A84",
+    "accent": "#FF6A3D",
+    "text": "#EFECE6",
+    "muted": "#8C8A84"
+  },
+  "typography": {
+    "display": {
+      "family": "Space Grotesk",
+      "weight": 700,
+      "letterSpacing": -0.03,
+      "case": "none"
+    },
+    "body": {
+      "family": "Inter",
+      "weight": 500,
+      "letterSpacing": 0
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "weight": 500
+    }
+  },
+  "motion": {
+    "pace": "snappy",
+    "springs": {
+      "ui": "snappy",
+      "container": "default",
+      "type": "heavy"
+    },
+    "textReveal": "mask-up",
+    "staggerFrames": 4,
+    "transition": "wipe",
+    "transitionFrames": 10
+  },
+  "layout": {
+    "safeMargin": 96,
+    "cornerRadius": 18,
+    "strokeWidth": 3,
+    "grid": "lines"
+  },
+  "texture": {
+    "background": "grid",
+    "grain": 0.05,
+    "vignette": 0.25
+  },
+  "audio": {
+    "musicMood": "drive, 120 BPM, minor",
+    "voiceDirection": "calm, low, confident",
+    "sfx": "clicks, swipes, one impact on the lockup"
+  },
+  "dos": [
+    "One accent only \u2014 orange marks the single thing to look at",
+    "Huge type for hooks, small UI type for labels"
+  ],
+  "donts": [
+    "No gradients",
+    "No glow on UI",
+    "Nothing centered-on-gradient"
+  ],
+  "source": {
+    "project": "seed",
+    "type": null,
+    "date": "2026-10-13"
+  },
+  "version": 1,
+  "history": [
+    {
+      "version": 1,
+      "project": "seed",
+      "date": "2026-10-13",
+      "note": "studio seed style"
+    }
+  ]
+}

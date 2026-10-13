@@ -1,0 +1,9 @@
+{
+  "voice": "",
+  "model": "s2.1-pro",
+  "speed": 1.0,
+  "gap": 0.25,
+  "leadIn": 0.4,
+  "pronunciations": {},
+  "lines": []
+}
